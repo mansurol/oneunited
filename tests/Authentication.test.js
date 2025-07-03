@@ -1,9 +1,11 @@
 import { test, expect } from '@playwright/test';
 import VerificationPage from './VerificationPage';
+
 require('dotenv').config();
 
-const Registration = require('./Registration')
+const Registration = require('./Registration') 
 const Login = require('./Login')
+const Forgotpass= require('./Forgotpass')
 
 
 
@@ -39,7 +41,7 @@ test('Sign up ', async ({ page }) => {
      await page.waitForTimeout(1000);
 
 
-},60000);
+});
 
 
 
@@ -47,14 +49,31 @@ test('Sign up ', async ({ page }) => {
 test('Login' , async ({ page }) => {
  
   const login = new Login(page)
- await page.goto(process.env.URL);
-  await page.waitForTimeout(1000);
+  await page.goto(process.env.URL);
+  
   await page.getByRole('button', { name: 'LOGIN' }).click();
 
   await login.fillEmail(process.env.EMAIL)
   await login.fillPassword(process.env.PASSWORD)
+  await page.waitForTimeout(3000);
   await login.clickSignInButton()
-},60000);
+  await page.waitForTimeout(3000);
+
+});
+
+test('Forgot password',async ({page}) => {
+   const forgotPass = new Forgotpass(page)
+    await page.goto(process.env.URL);
+    await page.waitForTimeout(2000);
+    await page.getByRole('button', { name: 'LOGIN' }).click();
+    await page.getByRole('link', { name: 'Forgot password?' }).click();
+
+    await  forgotPass.ForgotPassEmailBox(process.env.EMAIL)
+    await page.waitForTimeout(3000);
+
+    await forgotPass.Sendresentlink()
+
+})
   
 
 test('VerifyEmail', async ({ page }) => {
@@ -62,7 +81,7 @@ test('VerifyEmail', async ({ page }) => {
 
   await page.goto(process.env.mailosaurURL);
   await verificationPage.signIn();
-  await page.waitForTimeout(5000);
+  await page.waitForTimeout(3000);
   await verificationPage.emailFieldFunction(process.env.userEmail)
   await page.waitForTimeout(1000);
   await verificationPage.Continuebtn()
@@ -71,6 +90,9 @@ test('VerifyEmail', async ({ page }) => {
 
   await verificationPage.loginBtnClick()
   await verificationPage.clickInboxBtn()
+  await page.waitForTimeout(3000);
+  await page.getByTestId('refresh-messages').click();
+  await page.waitForTimeout(3000);
   await verificationPage.clickConfirmationEmail(); 
   await verificationPage.PasswordReset()
 
