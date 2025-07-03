@@ -1,13 +1,29 @@
 import { test, expect } from '@playwright/test';
-import VerificationPage from './VerificationPage';
 require('dotenv').config();
 
 const Registration = require('./Registration')
 const Login = require('./Login')
 
 
+const emails = [
+  'mansour21001992@gmail.com',
+  'mansour2130@gmail.com',
+   'mansour2141@gmail.com',
 
-test('Sign up ', async ({ page }) => {
+    
+                 
+]
+
+const phoneNumbers = [
+  '01799991901',
+   '01799999018',
+    '01799198997'
+
+]
+
+emails.forEach((email, idx) => {
+  
+test('Sign up '+idx , async ({ page }) => {
  
   const registration = new Registration(page)
   await page.goto(process.env.URL);
@@ -15,7 +31,7 @@ test('Sign up ', async ({ page }) => {
   await page.getByText('Create new').click();
   await page.getByRole('combobox', { name: 'District' }).click();
   await page.getByRole('option', { name: 'Dhaka' }).click();
-  await registration.FillFirstPage(process.env.PHONE);
+  await registration.FillFirstPage(phoneNumbers[idx]);
 
   await registration.RegistedButton()
 
@@ -25,7 +41,7 @@ test('Sign up ', async ({ page }) => {
    await page.waitForTimeout(1000);
 
   
-  await registration.FinalForm(process.env.FIRST_NAME,process.env.LAST_NAME,process.env.INGAMENAME,process.env.EMAIL)
+  await registration.FinalForm(process.env.FIRST_NAME,process.env.LAST_NAME,process.env.INGAMENAME,email)
   await page.getByRole('textbox', { name: 'Date of Birth *' }).fill('1996-11-12');
   await page.getByRole('combobox', { name: 'Games *' }).click()
   await page.getByRole('option', { name: 'PUBG' }).click()
@@ -44,40 +60,16 @@ test('Sign up ', async ({ page }) => {
 
 
 
-test('Login' , async ({ page }) => {
+test('Login'+idx , async ({ page }) => {
  
   const login = new Login(page)
  await page.goto(process.env.URL);
   await page.waitForTimeout(1000);
   await page.getByRole('button', { name: 'LOGIN' }).click();
 
-  await login.fillEmail(process.env.EMAIL)
+  await login.fillEmail(email)
   await login.fillPassword(process.env.PASSWORD)
   await login.clickSignInButton()
 },60000);
   
-
-test('VerifyEmail', async ({ page }) => {
-  const verificationPage = new VerificationPage(page);
-
-  await page.goto(process.env.mailosaurURL);
-  await verificationPage.signIn();
-  await page.waitForTimeout(5000);
-  await verificationPage.emailFieldFunction(process.env.userEmail)
-  await page.waitForTimeout(1000);
-  await verificationPage.Continuebtn()
-  
-  await verificationPage.passwordFieldFunction(process.env.mailosaurPass)
-
-  await verificationPage.loginBtnClick()
-  await verificationPage.clickInboxBtn()
-  await verificationPage.clickConfirmationEmail(); 
-  await verificationPage.PasswordReset()
-
-  await verificationPage.newPasswordSetup(process.env.NEW_PASSWORD)
-  await verificationPage.ConnewPasswordSetup(process.env.CONFIRM_NEW_PASSWORD)
-
-  await verificationPage.ResetpassFunction()
 });
-
-
