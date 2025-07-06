@@ -72,7 +72,7 @@ test('Forgot password',async ({page}) => {
     await page.waitForTimeout(3000);
 
     await forgotPass.Sendresentlink()
-
+await page.waitForTimeout(5000);
 })
   
 
@@ -100,6 +100,9 @@ test('VerifyEmail', async ({ page }) => {
   await verificationPage.ConnewPasswordSetup(process.env.CONFIRM_NEW_PASSWORD)
 
   await verificationPage.ResetpassFunction()
+
+    await page.waitForTimeout(3000);
+ 
 });
 
 
