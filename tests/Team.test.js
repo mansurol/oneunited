@@ -28,10 +28,11 @@ test('Create Team' , async ({ page }) => {
   await editTeam.ClickTeamCard(process.env.TeamName)
   await page.waitForTimeout(2000);
   await createTeam.InviteTeamMember()
+  await page.waitForTimeout(2000);
   await createTeam.InviteTeamMailBox(process.env.InviteMail)
   await page.waitForTimeout(2000);
   await createTeam.InviteSendBtnBtn()
-   await page.waitForTimeout(3000);
+  await page.waitForTimeout(3000);
 
 
 
@@ -52,6 +53,7 @@ test('Invitetion accept' , async ({ page }) => {
   await createTeam.ClickNotification()
   await page.waitForTimeout(3000);
   await createTeam.DetailsNotificationBtn()
+  await page.waitForTimeout(3000);
   await createTeam.AcceptLastInvitation()
   await page.waitForTimeout(3000);
 

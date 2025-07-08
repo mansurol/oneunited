@@ -2,6 +2,7 @@ class CreateTeam {
     constructor(page) {
       this.page = page;
     this.TeamCreateBtn =  page.getByRole('button', { name: 'create new team' })
+    this.TeamCreateBtnTwo =  page.getByRole('button', { name: 'Create Your First Team' })
     this.TeamNameBox =  page.getByRole('textbox', { name: 'Team Name' })
     this.TeamTagbox =  page.getByRole('textbox', { name: 'Team Tag' })
     this.TeamDescriptionbox =  page.getByRole('textbox', { name: 'Team Description' })
@@ -16,9 +17,15 @@ class CreateTeam {
    
     }
   
-    async CreateTeamBtn() {
-      await this.TeamCreateBtn.click()
-    }
+async CreateTeamBtn() {
+  if (await this.TeamCreateBtn.isVisible().catch(() => false)) {
+    await this.TeamCreateBtn.click();
+  } else if (await this.TeamCreateBtnTwo.isVisible().catch(() => false)) {
+    await this.TeamCreateBtnTwo.click();
+  } else {
+    throw new Error('No "Create Team" button is visible');
+  }
+}
 
      async CreateTeamForm(name,tagName,TeamDescription){
      await this.TeamNameBox.fill(name)
