@@ -29,7 +29,7 @@ test('Sign up ', async ({ page }) => {
   await registration.FinalForm(process.env.FIRST_NAME,process.env.LAST_NAME,process.env.INGAMENAME,process.env.EMAIL)
   await page.getByRole('textbox', { name: 'Date of Birth *' }).fill('1996-11-12');
   await page.getByRole('combobox', { name: 'Games *' }).click()
-  await page.getByRole('option', { name: 'PUBG' }).click()
+  await page.getByRole('option', { name: 'DOTA 2' }).click()
   await page.locator('#menu- div').first().click()
 
   await registration.SaveProfile()

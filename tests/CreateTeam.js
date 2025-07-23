@@ -33,7 +33,6 @@ async CreateTeamBtn() {
       clicked = true;
     } catch (err2) {
       const allButtons = await this.page.locator('button').allTextContents();
-      console.log('🧪 Available Buttons:', allButtons);
       throw new Error('❌ No "Create Team" button is visible.');
     }
   }

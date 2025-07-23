@@ -7,7 +7,6 @@ class LOGIN {
     }
   
     async fillEmail(email) {
-        console.log(email)
      await this.emailInput.fill(email)
     }
   

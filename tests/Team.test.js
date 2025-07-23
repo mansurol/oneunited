@@ -21,7 +21,7 @@ test('Create Team' , async ({ page }) => {
   await createTeam.CreateTeamBtn()
   await createTeam.CreateTeamForm(process.env.TeamName, process.env.Tagname, process.env.TeamDescription)
   await page.getByLabel('', { exact: true }).click();
-  await page.getByRole('option', { name: 'PUBG' }).click();
+  await page.getByRole('option', { name: 'BOTA 2' }).click();
   await page.waitForTimeout(3000);
   await createTeam.RegisterTeam()
 

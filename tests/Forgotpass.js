@@ -10,7 +10,6 @@ class Forgotpass {
     }
   
     async fillEmail(email) {
-        console.log(email)
      await this.emailInput.fill(email)
     }
   

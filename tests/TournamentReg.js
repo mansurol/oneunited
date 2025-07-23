@@ -39,9 +39,10 @@ class TournamentReg {
     await this.Registerteam.click();
   }
   
-  async SelectPlayer (team1,team2) {
-    await this.page.getByRole('checkbox', { name: team1 }).check();
-    //await this.page.getByRole('checkbox', { name: team2 }).check();
+  async SelectPlayer (team1) {
+  
+    await this.page.getByRole('checkbox', { name: team1 }).click();
+    //await this.page.getByRole('checkbox', { name: team2 }).click();
   }
   async RegistrationTeamBtn() {
     await this.ClickRegistrationTeamBtn.click();
