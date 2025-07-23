@@ -22,7 +22,7 @@ test('TournamentsRegistration' , async ({ page }) => {
   await rournamentsRegistrations.clickTournamentRegistrationButton(process.env.TournamentName)
   await rournamentsRegistrations.clickRegisterteam()
   await page.getByRole('combobox').click();
-  await page.getByText('dotaaaDOTA').click();
+  await page.getByText(process.env.SelectTeamName).click();
   await rournamentsRegistrations.SelectPlayer(process.env.playerSelectName1,process.env.playerSelectName2)
   await rournamentsRegistrations.RegistrationTeamBtn()
   await rournamentsRegistrations.ClickAllTrournamentDetailsTab()

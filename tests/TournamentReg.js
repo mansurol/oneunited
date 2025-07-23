@@ -24,7 +24,7 @@ class TournamentReg {
       has: this.page.locator('.tournament-title', { hasText: name })
     });
 
-    await teamRegistration.getByRole('link', { name: 'Register Now' }).click();
+    await teamRegistration.getByRole('link', { name: 'Register Now' }).click();  
   }
 
   async clickTournamentViewDetailsButton(name) {
@@ -41,7 +41,7 @@ class TournamentReg {
   
   async SelectPlayer (team1,team2) {
     await this.page.getByRole('checkbox', { name: team1 }).check();
-    await this.page.getByRole('checkbox', { name: team2 }).check();
+    //await this.page.getByRole('checkbox', { name: team2 }).check();
   }
   async RegistrationTeamBtn() {
     await this.ClickRegistrationTeamBtn.click();
