@@ -1,0 +1,184 @@
+# Page snapshot
+
+```yaml
+- strong: Trial expired
+- text: — Thanks for trying Mailosaur!
+- link "Choose a plan":
+  - /url: /app/account/billing
+- text: to activate your account or contact support if you need to extend your trial.
+- link "Mailosaur":
+  - /url: /app
+  - img "Mailosaur"
+- searchbox
+- text: Press / to search
+- button "Talk to Us"
+- button "MI"
+- complementary:
+  - navigation:
+    - link "Home Home":
+      - /url: /app
+    - link "Usage Usage":
+      - /url: /app/usage
+    - button [expanded]
+    - button "Inboxes"
+    - link "mansur's inbox":
+      - /url: /app/servers/rrijr9x5/messages/inbox
+    - link "Account settings Account settings":
+      - /url: /app/account
+    - link "Users & teams Users & teams":
+      - /url: /app/account/users
+    - link "Invoicing & billing Invoicing & billing":
+      - /url: /app/account/billing
+- main:
+  - heading "Welcome back, Mansurol" [level=2]
+  - heading "Email testing" [level=2]
+  - link "View inboxes":
+    - /url: /app/servers
+  - paragraph: Server ID
+  - button
+  - button
+  - paragraph: Most recent inbox
+  - paragraph
+  - paragraph: ()
+  - link "Go to inbox":
+    - /url: /app/servers/default/messages/inbox
+  - heading "Your profile" [level=3]
+  - paragraph: View, edit and manage your personal information and settings.
+  - paragraph: Progress
+  - paragraph: 0%
+  - link "Complete your profile":
+    - /url: /app/profile
+  - heading "We want to get to know you" [level=3]
+  - text: What industry do you work in?
+  - combobox "What industry do you work in?"
+  - button
+  - button "Submit"
+  - heading "Guides" [level=3]
+  - paragraph: Get the most out of Mailosaur with our bespoke guides
+  - link "Go to guides":
+    - /url: https://mailosaur.com/docs
+  - link "Cypress":
+    - /url: https://mailosaur.com/docs/email-testing/cypress
+    - img "Cypress"
+  - paragraph: cypress
+  - heading "How to test email with Cypress" [level=4]
+  - link "Follow this guide":
+    - /url: https://mailosaur.com/docs/email-testing/cypress
+  - link "Cypress":
+    - /url: https://mailosaur.com/docs/sms-testing/cypress
+    - img "Cypress"
+  - paragraph: cypress
+  - heading "SMS testing with Cypress" [level=4]
+  - link "Follow this guide":
+    - /url: https://mailosaur.com/docs/sms-testing/cypress
+  - link "Cypress":
+    - /url: https://mailosaur.com/docs/email-testing/playwright
+    - img "Cypress"
+  - paragraph: playwright
+  - heading "Email testing with Playwright and Mailosaur" [level=4]
+  - link "Follow this guide":
+    - /url: https://mailosaur.com/docs/email-testing/playwright
+  - link "Cypress":
+    - /url: https://mailosaur.com/docs/sms-testing/playwright
+    - img "Cypress"
+  - paragraph: playwright
+  - heading "SMS testing with Playwright and Mailosaur" [level=4]
+  - link "Follow this guide":
+    - /url: https://mailosaur.com/docs/sms-testing/playwright
+  - link "Cypress":
+    - /url: https://mailosaur.com/docs/email-testing/nodejs
+    - img "Cypress"
+  - paragraph: nodejs
+  - heading "Email testing with Node.js and Mailosaur" [level=4]
+  - link "Follow this guide":
+    - /url: https://mailosaur.com/docs/email-testing/nodejs
+  - link "Cypress":
+    - /url: https://mailosaur.com/docs/sms-testing/nodejs
+    - img "Cypress"
+  - paragraph: nodejs
+  - heading "SMS testing with Node.js and Mailosaur" [level=4]
+  - link "Follow this guide":
+    - /url: https://mailosaur.com/docs/sms-testing/nodejs
+  - link "Cypress":
+    - /url: https://mailosaur.com/docs/frameworks-and-tools/postman
+    - img "Cypress"
+  - paragraph: postman
+  - heading "How to test email and SMS with Postman" [level=4]
+  - link "Follow this guide":
+    - /url: https://mailosaur.com/docs/frameworks-and-tools/postman
+  - link "Cypress":
+    - /url: https://mailosaur.com/docs/frameworks-and-tools/robot-framework
+    - img "Cypress"
+  - paragraph: robot-framework
+  - heading "How to test email and SMS with Robot Framework" [level=4]
+  - link "Follow this guide":
+    - /url: https://mailosaur.com/docs/frameworks-and-tools/robot-framework
+  - link "Cypress":
+    - /url: https://mailosaur.com/docs/frameworks-and-tools/selenium
+    - img "Cypress"
+  - paragraph: selenium
+  - heading "How to test email and SMS with Selenium" [level=4]
+  - link "Follow this guide":
+    - /url: https://mailosaur.com/docs/frameworks-and-tools/selenium
+  - link "Cypress":
+    - /url: https://mailosaur.com/docs/frameworks-and-tools/testcafe
+    - img "Cypress"
+  - paragraph: testcafe
+  - heading "How to test email and SMS with TestCafe" [level=4]
+  - link "Follow this guide":
+    - /url: https://mailosaur.com/docs/frameworks-and-tools/testcafe
+  - link "Cypress":
+    - /url: https://mailosaur.com/docs/languages/python
+    - img "Cypress"
+  - paragraph: python
+  - heading "How to test email and SMS in Python" [level=4]
+  - link "Follow this guide":
+    - /url: https://mailosaur.com/docs/languages/python
+  - link "Cypress":
+    - /url: https://mailosaur.com/docs/languages/java
+    - img "Cypress"
+  - paragraph: java
+  - heading "How to test email and SMS in Java" [level=4]
+  - link "Follow this guide":
+    - /url: https://mailosaur.com/docs/languages/java
+  - link "Cypress":
+    - /url: https://mailosaur.com/docs/languages/dotnet
+    - img "Cypress"
+  - paragraph: dotnet
+  - heading "How to test email and SMS in .NET" [level=4]
+  - link "Follow this guide":
+    - /url: https://mailosaur.com/docs/languages/dotnet
+  - link "Cypress":
+    - /url: https://mailosaur.com/docs/languages/ruby
+    - img "Cypress"
+  - paragraph: ruby
+  - heading "How to test email and SMS in Ruby" [level=4]
+  - link "Follow this guide":
+    - /url: https://mailosaur.com/docs/languages/ruby
+  - link "Cypress":
+    - /url: https://mailosaur.com/docs/languages/go
+    - img "Cypress"
+  - paragraph: go
+  - heading "How to test email and SMS in Go" [level=4]
+  - link "Follow this guide":
+    - /url: https://mailosaur.com/docs/languages/go
+  - heading "Invoicing & billing" [level=4]
+  - paragraph: View your billing overview, billings history and account status.
+  - button "Manage billing"
+  - heading "1 user and 0 teams" [level=4]
+  - button "Invite users"
+  - button "Create teams"
+  - button "Manage users"
+  - heading "Other features" [level=3]
+  - heading "SAML single sign-on (SSO) authentication" [level=4]
+  - paragraph: Fill out the information below to set up Mailosaur with your enterprise SSO solution for added security.
+  - link "Documentation Explore our guides and API documentation to learn how to test email and SMS with Mailosaur.":
+    - /url: /docs
+    - heading "Documentation" [level=4]
+    - paragraph: Explore our guides and API documentation to learn how to test email and SMS with Mailosaur.
+- dialog:
+  - heading "Do you need more time?" [level=3]
+  - paragraph: Your initial 14 day trial has come to an end, but we know that sometimes you need a little more time to get up and running. To add a further 14 days to your trial, just confirm below.
+  - button "Maybe later"
+  - button "Extend my trial until Aug 6"
+```

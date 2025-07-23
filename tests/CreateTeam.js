@@ -12,8 +12,8 @@ class CreateTeam {
     this.InviteSendBtn = page.getByRole('button', { name: 'Send Invite' })
 
     this.NotificationBtn = page.getByRole('button', { name: 'Notifications' })
-    this.DetailsNotification =  page.getByRole('listitem').filter({ hasText: 'Team InvitationYou have been invited to join the team Team9111Click to join' })
-    this.acceptButtons = this.page.locator('button:has-text("Accept Invite")')
+    this.DetailsNotification =  page.getByText('Team InvitationYou have been invited to join the team New team 12Click to join')
+    this.acceptButtons = page.locator('button:has-text("Accept Invite")')
    
     }
   

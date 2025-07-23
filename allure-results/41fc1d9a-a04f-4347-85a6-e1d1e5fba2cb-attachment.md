@@ -1,0 +1,56 @@
+# Page snapshot
+
+```yaml
+- img "One United Logo"
+- button:
+  - img
+- list:
+  - listitem:
+    - link "Teams":
+      - /url: /dashboard/teams
+      - img
+      - text: Teams
+  - listitem:
+    - link "Tournaments":
+      - /url: /dashboard/tournaments
+      - img
+      - text: Tournaments
+  - listitem:
+    - link "Matches":
+      - /url: /dashboard/matches
+      - img
+      - text: Matches
+- link "Back to Main Site":
+  - /url: /
+  - img
+  - text: Back to Main Site
+- main:
+  - text: Tournaments
+  - img "Champions Cup"
+  - heading "Champions Cup" [level=3]
+  - text: DOTA 2 Teams 16 Players/Team 1 - 7 Prize Pool ৳ 100,000 Tournament Ended 20 Jul 2025
+  - link "View Details":
+    - /url: /dashboard/tournaments/68611d647005c0002aebb43e
+  - img "16 team"
+  - heading "16 team" [level=3]
+  - text: VALORANT Teams 16 Players/Team 1 - 5 Prize Pool ৳ 9,000 Tournament Ended 8 Jul 2025
+  - link "View Details":
+    - /url: /dashboard/tournaments/68635ee916899f002a697d59
+  - heading "Bracket Testing Tournament" [level=3]
+  - text: DOTA 2 Teams 16 Players/Team 1 - 3 Prize Pool ৳ 1,000 Tournament Ended 12 Jul 2025
+  - link "View Details":
+    - /url: /dashboard/tournaments/6863b21616899f002a69a17b
+  - heading "Test Tournament" [level=3]
+  - text: DOTA 2 Teams 8 Players/Team 1 - 1 Prize Pool ৳ 2,000 Registration Closes 2d 19h 2m
+  - link "Register Now":
+    - /url: /dashboard/tournaments/687cb77d91d2b5002a496f73
+- button "Profile":
+  - img
+- button "Notifications":
+  - img
+  - text: "1"
+- button "Logout":
+  - img
+- region "Notifications Alt+T"
+- alert
+```

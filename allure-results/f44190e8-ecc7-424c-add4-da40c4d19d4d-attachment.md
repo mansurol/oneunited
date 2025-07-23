@@ -1,0 +1,63 @@
+# Page snapshot
+
+```yaml
+- img "One United Logo"
+- button:
+  - img
+- list:
+  - listitem:
+    - link "Teams":
+      - /url: /dashboard/teams
+      - img
+      - text: Teams
+  - listitem:
+    - link "Tournaments":
+      - /url: /dashboard/tournaments
+      - img
+      - text: Tournaments
+  - listitem:
+    - link "Matches":
+      - /url: /dashboard/matches
+      - img
+      - text: Matches
+- link "Back to Main Site":
+  - /url: /
+  - img
+  - text: Back to Main Site
+- main:
+  - heading "Teams" [level=1]
+  - button "create new team"
+  - img
+  - text: 3 Teams
+  - img
+  - text: 3 Total Players
+  - img
+  - text: 1 Tournaments
+  - img
+  - text: 2 Games
+  - heading "Your Teams (3)" [level=2]
+  - img
+  - text: PUBG "team00" team111 team Players 1 Tournaments 0
+  - button "Invite Player":
+    - img
+  - button "View Details"
+  - img
+  - text: DOTA 2 "tttty" new Players 1 Tournaments 1
+  - button "Invite Player":
+    - img
+  - button "View Details"
+  - img
+  - text: PUBG "Twwww" Hello1 new Players 1 Tournaments 0
+  - button "Invite Player":
+    - img
+  - button "View Details"
+- button "Profile":
+  - img
+- button "Notifications":
+  - img
+  - text: "1"
+- button "Logout":
+  - img
+- region "Notifications Alt+T"
+- alert
+```
