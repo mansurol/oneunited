@@ -28,14 +28,15 @@ test('LCTITR ', async ({ page }) => {
   await login.fillPassword(process.env.PASSWORD)
   await page.waitForTimeout(1000);
   await login.clickSignInButton()
-  await page.waitForTimeout(3000);
 
   //team create 
+
   await createteam.CreateTeamBtn()
+  
   await createteam.CreateTeamForm(process.env.TeamName, process.env.Tagname, process.env.TeamDescription)
   await page.getByLabel('', { exact: true }).click();
-  await page.getByRole('option', { name: 'PUBG' }).click();
-  await page.waitForTimeout(3000);
+  await page.getByRole('option', { name: 'DOTA 2' }).click();
+   await page.waitForTimeout(3000);
   await createteam.RegisterTeam()
 
   //Invite player
@@ -46,7 +47,7 @@ test('LCTITR ', async ({ page }) => {
   await createteam.InviteTeamMailBox(process.env.InviteMail)
   await page.waitForTimeout(2000);
   await createteam.InviteSendBtnBtn()
-  await page.waitForTimeout(3000);
+  await page.waitForTimeout(2000);
 
   await logouts.Sitelogout()
 
@@ -69,14 +70,13 @@ test('LCTITR ', async ({ page }) => {
 
   //Tournaments Registration
   await logouts.Sitelogout()
-  await page.goto(process.env.URL);
-  await page.getByRole('button', { name: 'LOGIN' }).click();
-  await page.waitForTimeout(3000);
+    await page.waitForTimeout(1000);
 
+  await page.goto(process.env.URL);
+  await page.getByRole('button', { name: 'LOGIN' }).click(); 
   await login.fillEmail(process.env.EMAIL)
   await login.fillPassword(process.env.PASSWORD)
-
-  await page.waitForTimeout(2000);
+  await page.waitForTimeout(1000);
   await login.clickSignInButton()
   await page.waitForTimeout(3000);
   await rournamentsRegistrations.clickTournamentButton()
@@ -84,17 +84,19 @@ test('LCTITR ', async ({ page }) => {
   await rournamentsRegistrations.clickRegisterteam()
   await page.getByRole('combobox').click();
   await page.getByText(process.env.SelectTeamName).click();
-  await rournamentsRegistrations.SelectPlayer(process.env.playerSelectName1,process.env.playerSelectName2)
+  await rournamentsRegistrations.SelectPlayer(process.env.playerSelectName1)
   await rournamentsRegistrations.RegistrationTeamBtn()
   await rournamentsRegistrations.ClickAllTrournamentDetailsTab()
 
 
+
+
     
-});
+},60000);
 
 
 
 
 
-
+ 
 

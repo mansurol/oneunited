@@ -12,20 +12,33 @@ class CreateTeam {
     this.InviteSendBtn = page.getByRole('button', { name: 'Send Invite' })
 
     this.NotificationBtn = page.getByRole('button', { name: 'Notifications' })
-    this.DetailsNotification =  page.getByText('Team InvitationYou have been invited to join the team New team 12Click to join')
+    this.DetailsNotification =  page.getByText('Team Invitation')
     this.acceptButtons = page.locator('button:has-text("Accept Invite")')
    
     }
   
 async CreateTeamBtn() {
-  if (await this.TeamCreateBtn.isVisible().catch(() => false)) {
+  // First try: wait for at least one of them to be attached
+  const timeout = 5000;
+  let clicked = false;
+
+  try {
+    await this.TeamCreateBtn.waitFor({ state: 'visible', timeout });
     await this.TeamCreateBtn.click();
-  } else if (await this.TeamCreateBtnTwo.isVisible().catch(() => false)) {
-    await this.TeamCreateBtnTwo.click();
-  } else {
-    throw new Error('No "Create Team" button is visible');
+    clicked = true;
+  } catch (err1) {
+    try {
+      await this.TeamCreateBtnTwo.waitFor({ state: 'visible', timeout });
+      await this.TeamCreateBtnTwo.click();
+      clicked = true;
+    } catch (err2) {
+      const allButtons = await this.page.locator('button').allTextContents();
+      console.log('🧪 Available Buttons:', allButtons);
+      throw new Error('❌ No "Create Team" button is visible.');
+    }
   }
 }
+
 
      async CreateTeamForm(name,tagName,TeamDescription){
      await this.TeamNameBox.fill(name)
@@ -58,7 +71,7 @@ async CreateTeamBtn() {
     }
 
         async DetailsNotificationBtn() {
-      await this.DetailsNotification.first().click()
+      await this.page.getByText(process.env.TeamName).click()
     }
 
       async AcceptLastInvitation() {
