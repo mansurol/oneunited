@@ -5,15 +5,17 @@
 require('dotenv').config();
 
 test('Edit Profile' , async ({ page }) => {
+
   const login = new Login(page)
   const editProfile = new EditProfile(page)
+  
   await page.goto(process.env.URL);
   await page.getByRole('button', { name: 'LOGIN' }).click();
   await login.fillEmail(process.env.EMAIL)
   await login.fillPassword(process.env.PASSWORD)
   await page.waitForTimeout(2000);
   await login.clickSignInButton()
-  await page.waitForTimeout(3000);
+  await page.waitForTimeout(1000);
   await editProfile.clickIcon()  
   await page.waitForTimeout(2000);
   await editProfile.ViewProfile()

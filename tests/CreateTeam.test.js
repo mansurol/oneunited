@@ -11,14 +11,14 @@ test('CreateTeam' , async ({ page }) => {
   await page.getByRole('button', { name: 'LOGIN' }).click();
   await login.fillEmail(process.env.EMAIL)
   await login.fillPassword(process.env.PASSWORD)
-  await page.waitForTimeout(2000);
+  await page.waitForTimeout(1000);
   await login.clickSignInButton()
-  await page.waitForTimeout(3000);
+  await page.waitForTimeout(2000);
   await createTeam.CreateTeamBtn()
   await createTeam.CreateTeamForm(process.env.TeamName, process.env.Tagname, process.env.TeamDescription)
   await page.getByLabel('', { exact: true }).click();
   await page.getByRole('option', { name: 'DOTA 2' }).click();
-  await page.waitForTimeout(3000);
+  await page.waitForTimeout(2000);
   await createTeam.RegisterTeam()
 
 });

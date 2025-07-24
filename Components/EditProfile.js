@@ -8,7 +8,7 @@ class EditProfile {
       this.lname = page.locator('div').filter({ hasText: /^Last Name$/ }).getByRole('textbox')
       this.IngName = page.locator('div').filter({ hasText: /^IGN \(In-Game Name\)$/ }).getByRole('textbox')
       this.PhoneNum =  page.locator('div').filter({ hasText: /^Phone Number$/ }).getByRole('textbox')
-      this.CityName = page.locator('div').filter({ hasText: /^City$/ }).getByRole('textbox')
+      this.CityName = page.locator('div').filter({ hasText: /^City$/}).getByRole('textbox')
 
 
     }
@@ -25,12 +25,8 @@ class EditProfile {
     }
 
     async EditInfo(firstname,lastName,IngName,phone,city) {
-        
-      await this.fname.fill(firstname)
-      await this.lname.fill(lastName)
-      await this.IngName.fill(IngName)
-      await this.PhoneNum.fill(phone)
-      await this.CityName.fill(city)
+      await this.fname.click().fill(firstname)
+   
     }
 
   }

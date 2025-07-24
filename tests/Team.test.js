@@ -7,12 +7,14 @@ require('dotenv').config();
 
 
 
-test('Create Team' , async ({ page }) => {
-  
+test('Create Team & Edit' , async ({ page }) => {
+
   const login = new Login(page)
-  const editTeam = new EditTeam(page)
-  await page.goto(process.env.URL);
   const createTeam = new CreateTeam(page)
+  const editTeam = new EditTeam(page)
+
+
+  await page.goto(process.env.URL);
   await page.getByRole('button', { name: 'LOGIN' }).click();
   await login.fillEmail(process.env.EMAIL)
   await login.fillPassword(process.env.PASSWORD)
@@ -25,6 +27,35 @@ test('Create Team' , async ({ page }) => {
   await page.getByRole('option', { name: 'DOTA 2' }).click();
   await page.waitForTimeout(3000);
   await createTeam.RegisterTeam()
+
+  await editTeam.ClickTeamCard(process.env.TeamName)
+  await page.waitForTimeout(3000);
+  await editTeam.ClickEditBtn()
+  await page.waitForTimeout(3000);
+  await editTeam.EditTeamFunction(process.env.EditTeamName, process.env.EditTagname, process.env.EditTeamDescription)
+  await editTeam.ClickSaveChangeBtn()
+  await page.waitForTimeout(3000);
+
+
+
+
+});
+
+
+
+test('Invite player' , async ({ page }) => {
+
+  const login = new Login(page)
+  const createTeam = new CreateTeam(page)
+  const editTeam = new EditTeam(page)
+
+  await page.goto(process.env.URL);
+  await page.getByRole('button', { name: 'LOGIN' }).click();
+  await login.fillEmail(process.env.EMAIL)
+  await login.fillPassword(process.env.PASSWORD)
+  await page.waitForTimeout(2000);
+  await login.clickSignInButton()
+
   await editTeam.ClickTeamCard(process.env.TeamName)
   await page.waitForTimeout(2000);
   await createTeam.InviteTeamMember()
@@ -36,11 +67,12 @@ test('Create Team' , async ({ page }) => {
 
 });
 
-test('Invitetion accept' , async ({ page }) => {
 
+test('Invitetion accept' , async ({ page }) => {
   const login = new Login(page)
-  await page.goto(process.env.URL);
   const createTeam = new CreateTeam(page)
+
+  await page.goto(process.env.URL);
   await page.getByRole('button', { name: 'LOGIN' }).click();
   await login.fillEmail(process.env.InviteMail)
   await login.fillPassword(process.env.Invitemailpass)
@@ -52,28 +84,5 @@ test('Invitetion accept' , async ({ page }) => {
   await page.waitForTimeout(3000);
   await createTeam.AcceptLastInvitation()
   await page.waitForTimeout(3000);
-
-});
-
-
-
-test('Edit Team' , async ({ page }) => {
-
-  const login = new Login(page)
-  const editTeam = new EditTeam(page)
-  await page.goto(process.env.URL);
-  await page.getByRole('button', { name: 'LOGIN' }).click();
-  await login.fillEmail(process.env.EMAIL)
-  await login.fillPassword(process.env.PASSWORD)
-  await login.clickSignInButton()
-  await page.waitForTimeout(3000);
-  await editTeam.ClickTeamCard(process.env.TeamName)
-  await page.waitForTimeout(3000);
-  await editTeam.ClickEditBtn()
-   await page.waitForTimeout(3000);
-  await editTeam.EditTeamFunction(process.env.EditTeamName, process.env.EditTagname, process.env.EditTeamDescription)
-  await editTeam.ClickSaveChangeBtn()
-  await page.waitForTimeout(3000);
-
 
 });
