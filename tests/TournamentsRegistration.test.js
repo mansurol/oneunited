@@ -1,20 +1,18 @@
 import { test, expect } from '@playwright/test';
-require('dotenv').config();
-const Login = require('./Login')
-const TournamentsRegistrations = require ('./TournamentReg')
+import Login from '../Components/Login';
+import TournamentsRegistrations from '../Components/TournamentReg'
 
+require('dotenv').config();
 
 
 test('TournamentsRegistration' , async ({ page }) => {
+
   const login = new Login(page)
   const rournamentsRegistrations = new TournamentsRegistrations(page)
-
   await page.goto(process.env.URL);
   await page.getByRole('button', { name: 'LOGIN' }).click();
-
   await login.fillEmail(process.env.EMAIL)
   await login.fillPassword(process.env.PASSWORD)
-
   await page.waitForTimeout(2000);
   await login.clickSignInButton()
   await page.waitForTimeout(3000);
@@ -31,15 +29,13 @@ test('TournamentsRegistration' , async ({ page }) => {
 });
 
 test('Tournaments Details' , async ({ page }) => {
+
   const login = new Login(page)
   const rournamentsRegistrations = new TournamentsRegistrations(page)
-
   await page.goto(process.env.URL);
   await page.getByRole('button', { name: 'LOGIN' }).click();
-
   await login.fillEmail(process.env.EMAIL)
   await login.fillPassword(process.env.PASSWORD)
-
   await page.waitForTimeout(2000);
   await login.clickSignInButton()
   await page.waitForTimeout(3000);

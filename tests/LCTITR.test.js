@@ -1,14 +1,10 @@
 import { test, expect } from '@playwright/test';
-
 require('dotenv').config();
-
- 
-const Login = require('./Login')
-const CreateTeam = require('./CreateTeam')
-const EditTeam = require('./EditTeam')
-const Logouts = require('./Logout')
-const TournamentsRegistrations = require ('./TournamentReg')
-
+import Login from '../Components/Login';
+import CreateTeam from '../Components/CreateTeam';
+import EditTeam from '../Components/EditTeam';
+import Logouts from '../Components/Logout';
+import TournamentsRegistrations from '../Components/TournamentReg';
 
 
 test('LCTITR ', async ({ page }) => {
